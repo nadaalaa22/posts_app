@@ -17,7 +17,7 @@ class PostsRepositoryImpl implements PostsRepository{
   final PostLocalDataSource localDataSource;
   final NetworkInfo networkInfo ;
 
-  PostsRepositoryImpl(this.networkInfo, {required this.remoteDataSource, required this.localDataSource});
+  PostsRepositoryImpl({required this.remoteDataSource, required this.localDataSource, required this.networkInfo,});
   @override
   Future<Either<Failure, List<Post>>> getAllPosts() async {
     if (await networkInfo.isConnected) {
