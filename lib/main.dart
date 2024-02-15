@@ -13,6 +13,7 @@ Future<void> main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider(
+          // add like an init state we use to change the state
             create: (_) => di.sl<PostsBloc>()..add(GetAllPostsEvent())),
         BlocProvider(create: (_) => di.sl<AddDeleteUpdatePostBloc>()),
       ],
@@ -28,8 +29,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: appTheme,
+      title: 'Posts App',
       home: PostsPage(),
     );
   }
